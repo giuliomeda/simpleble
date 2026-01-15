@@ -4,8 +4,8 @@ namespace SimpleBLE {
 namespace Config {
     namespace SimpleBluez {
         bool use_legacy_bluez_backend = true;
-        std::chrono::steady_clock::duration connection_timeout = std::chrono::seconds(2);
-        std::chrono::steady_clock::duration disconnection_timeout = std::chrono::seconds(1);
+        std::chrono::steady_clock::duration connection_timeout = Defaults::k_default_connection_timeout;
+        std::chrono::steady_clock::duration disconnection_timeout = Defaults::k_default_disconnection_timeout;
     }  // namespace SimpleBluez
 
     namespace WinRT {

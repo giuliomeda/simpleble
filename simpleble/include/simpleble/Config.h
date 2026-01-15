@@ -3,15 +3,20 @@
 
 namespace SimpleBLE {
 namespace Config {
-    namespace SimpleBluez {
+namespace SimpleBluez {
+namespace Defaults {
+        using namespace std::chrono_literals;
+        inline constexpr std::chrono::steady_clock::duration k_default_connection_timeout = 10s;
+        inline constexpr std::chrono::steady_clock::duration k_default_disconnection_timeout = 1s;
+}    
         extern bool use_legacy_bluez_backend;
         extern std::chrono::steady_clock::duration connection_timeout;
         extern std::chrono::steady_clock::duration disconnection_timeout;
 
         static void reset() {
             use_legacy_bluez_backend = true;
-            connection_timeout = std::chrono::seconds(2);
-            disconnection_timeout = std::chrono::seconds(1);
+            connection_timeout = Defaults::k_default_connection_timeout;
+            disconnection_timeout = Defaults::k_default_disconnection_timeout;
         }
     }
 
